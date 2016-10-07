@@ -90,6 +90,7 @@
 				C815D2A31DA807DF00FD9945 /* Sources */,
 				C815D2A41DA807DF00FD9945 /* Frameworks */,
 				C815D2A51DA807DF00FD9945 /* Resources */,
+				C815D2C11DA83E3B00FD9945 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -147,6 +148,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C815D2C11DA83E3B00FD9945 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Parse.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Bolts.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C815D2A31DA807DF00FD9945 /* Sources */ = {
@@ -326,6 +345,7 @@
 				C815D2BB1DA807E000FD9945 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

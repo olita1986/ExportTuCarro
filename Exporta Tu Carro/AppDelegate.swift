@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import Bolts
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,8 +21,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
     
         // appId = dd64544d13aafd7b9e8526483ef1b71311966c2d
-        // masterKey = dd64544d13aafd7b9e8526483ef1b71311966c2d
+        // masterKey = cf11d1b9d23437a9bdd3fe634b8c7737d157a6ad
         // server = http://ec2-54-191-170-183.us-west-2.compute.amazonaws.com:80/parse
+        
+        let parseConfiguration = ParseClientConfiguration(block: { (ParseMutableClientConfiguration) -> Void in
+            ParseMutableClientConfiguration.applicationId = "dd64544d13aafd7b9e8526483ef1b71311966c2d"
+            ParseMutableClientConfiguration.clientKey = "cf11d1b9d23437a9bdd3fe634b8c7737d157a6ad"
+            ParseMutableClientConfiguration.server = "http://ec2-54-191-170-183.us-west-2.compute.amazonaws.com:80/parse"
+        })
+        
+        Parse.initialize(with: parseConfiguration)
+        
+        let defaultACL = PFACL();
+        
+        // If you would like all objects to be private by default, remove this line.
+        defaultACL.getPublicReadAccess = true
+        
+        PFACL.setDefault(defaultACL, withAccessForCurrentUser: true)
         
         
         return true
